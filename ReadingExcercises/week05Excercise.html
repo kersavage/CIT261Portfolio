@@ -1,0 +1,43 @@
+<html><head>
+<meta charset="UTF-8">
+<title>Week5Excercises</title>
+</head>
+
+<body>
+	<script>
+		class MultiplicatorUnitFailure extends Error {}
+
+		function primitiveMultiply(a, b) {
+  			if (Math.random() < 0.2) {
+    			return a * b;
+  			} else {
+    			throw new MultiplicatorUnitFailure("Klunk");
+  			}
+		}
+
+		function reliableMultiply(a, b) {
+			var answer;
+
+			//Loop until a valid result occurs
+			for(;;) {
+				try {
+					answer = primitiveMultiply(a, b);
+					break;
+				} catch (error) {
+					console.log("The following error occured: " + error);
+				}
+			}
+
+			return answer;
+ 
+		}
+
+		console.log(reliableMultiply(8, 8));
+		// → 64
+  	</script>
+
+<h3>Test</h3>
+
+
+</body>
+</html>
