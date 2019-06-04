@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    <style>
+        
+
+        td {
+            
+            padding: 100px;
+            font-size: 40px;
+            
+        }
+
+        tr:nth-child(1) td:nth-child(1){
+            border-right: solid;
+            border-bottom: solid;
+        }
+
+        tr:nth-child(1) td:nth-child(2){
+            border-bottom: solid;
+        }
+
+        tr:nth-child(1)  td:nth-child(3){
+            border-left: solid;
+            border-bottom: solid;
+        }
+
+
+        tr:nth-child(2) td:nth-child(1){
+            border-right: solid;
+            border-bottom: solid;
+        }
+
+        tr:nth-child(2) td:nth-child(2){
+            border-bottom: solid;
+            border-right: solid;
+        }
+
+        tr:nth-child(2)  td:nth-child(3){
+            border-bottom: solid;
+        }
+
+        tr:nth-child(3) td:nth-child(1){
+            border-right: solid;   
+        }
+
+        tr:nth-child(3) td:nth-child(2){
+            border-right: solid;
+        }
+
+       
+
+
+        table {
+            border: none;
+        }
+
+        button{
+            padding: 40px;
+            background-color: gray;
+            color: white;
+        }
+
+
+    </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td id="td1" ontouchend="updateMe(1)"></td>
+                <td id="td2" ontouchend="updateMe(2)"></td>
+                <td id="td3"ontouchend="updateMe(3)"></td>
+             </tr>
+             <tr>
+                  <td id="td4" ontouchend="updateMe(4)"></td>
+                  <td id="td5" ontouchend="updateMe(5)"></td>
+                <td id="td6" ontouchend="updateMe(6)"></td>
+              </tr>
+        <tr>
+            <td id="td7" ontouchend="updateMe(7)"></td>
+             <td id="td8" ontouchend="updateMe(8)"></td>
+            <td id="td9" ontouchend="updateMe(9)"></td>
+         </tr>
+        </table>
+
+        <button onclick="reset()"> Reset </button>
+
+        <div id="message"></div>
+    </body>
+    <script>
+
+        let player1 = true;
+
+        
+            let b1 = null;
+            let b2 = null;
+            let b3 = null;
+            let b4 = null;
+            let b5 = null;
+            let b6 = null;
+            let b7 = null;
+            let b8 =  null;
+            let b9  = null;
+        
+        let moveCount = 0;
+
+        function updateMe(id){
+
+            if(player1){
+                
+   
+                let checker  = document.getElementById('td' +id).innerText;
+                if(!checker){
+                    player1 = false;
+                    document.getElementById('td' +id).innerText = 'X';
+                    moveCount++;
+                    switch(id){
+                        case 1:
+                            b1 = 'X';
+                            break;
+                        case 2:
+                            b2 = 'X';
+                            break;
+                        case 3:
+                            b3 = 'X';
+                            break;
+                       case 4:
+                            b4 = 'X';
+                            break;
+                        case 5:
+                            b5 = 'X';
+                            break;
+                         case 6:
+                            b6 = 'X';
+                            break;
+                        case 7:
+                            b7 = 'X';
+                            break;
+                        case 8:
+                            b8 = 'X';
+                            break;
+                         case 9:
+                            b9 = 'X';
+                            break;
+
+                    }
+
+                }
+
+            } else {
+                
+                let checker  = document.getElementById('td' +id).innerText;
+                if(!checker){
+                    player1 = true;
+                    document.getElementById('td' +id).innerText = 'O';
+                    moveCount++;
+                    switch(id){
+                        case 1:
+                            b1 = 'O';
+                            break;
+                        case 2:
+                            b2 = 'O';
+                            break;
+                        case 3:
+                            b3 = 'O';
+                            break;
+                       case 4:
+                            b4 = 'O';
+                            break;
+                        case 5:
+                            b5 = 'O';
+                            break;
+                         case 6:
+                            b6 = 'O';
+                            break;
+                        case 7:
+                            b7 = 'O';
+                            break;
+                        case 8:
+                            b8 = 'O';
+                            break;
+                         case 9:
+                            b9 = 'O';
+                            break;
+
+                    }
+
+
+                }
+            }
+
+
+            
+            checkWin();
+            console.log(moveCount);
+            
+        }
+
+        function checkWin(){
+
+            let messageDiv = document.getElementById('message');  
+
+             
+
+            if(b1 === 'X' && b2 === 'X' && b3 === 'X'){
+                
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+            if(b4 === 'X' && b5 === 'X' && b6 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+
+            if(b7 === 'X' && b8 === 'X' && b9 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+
+            if(b1 === 'X' && b4 === 'X' && b7 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+            if(b2 === 'X' && b5 === 'X' && b8 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+            if(b3 === 'X' && b6 === 'X' && b9 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+
+            if(b1 === 'X' && b5 === 'X' && b9 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+
+            if(b3 === 'X' && b5 === 'X' && b7 === 'X'){
+
+                messageDiv.innerHTML = 'Player 1 Wins';
+                console.log('Player 1 Wins');
+                return true;
+            }
+
+
+            //O area
+            if(b1 === 'O' && b2 === 'O' && b3 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+            if(b4 === 'O' && b5 === 'O' && b6 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+
+            if(b7 === 'O' && b8 === 'O' && b9 === 'O'){
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+
+            if(b1 === 'O' && b4 === 'O' && b7 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+            if(b2 === 'O' && b5 === 'O' && b8 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+            if(b3 === 'O' && b6 === 'O' && b9 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+
+            if(b1 === 'O' && b5 === 'O' && b9 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+
+            if(b3 === 'O' && b5 === 'O' && b7 === 'O'){
+
+                messageDiv.innerHTML = 'Player 2 Wins';
+                console.log('Player 2 Wins');
+                return true;
+            }
+
+
+            if(moveCount == 9){
+                messageDiv.innerHTML = "Tie";
+                return true;
+            } 
+
+
+        }
+
+        function reset(){
+
+            console.log('here');
+
+            for(i = 1; i < 10; i++){
+                document.getElementById('td' + i).innerText = '';
+                
+            }
+
+             b1 = null;
+             b2 = null;
+             b3 = null;
+             b4 = null;
+             b5 = null;
+             b6 = null;
+             b7 = null;
+             b8 =  null;
+             b9  = null;
+
+
+             moveCount = 0;
+
+        }
+
+
+    </script>
+</html>
