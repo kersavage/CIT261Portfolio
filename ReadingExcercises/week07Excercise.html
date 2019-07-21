@@ -1,0 +1,48 @@
+<!DOCTYPE html><head>
+<meta charset="UTF-8">
+<title>Week08TeamActivity</title>
+</head>
+
+<body>
+<h2>Week 08 Team Activity</h2>
+<div id="fetchOutput"></div>
+<button onclick="prevPage()">Prev</button>
+<button onclick="nextPage()">Next</button>
+
+<script>
+var url = 'https://swapi.co/api/starships/';
+var pageNum = 2;
+
+
+function getShips() {
+	return fetch(url + pageNum).then(function(response) {
+		return response.json();
+	})
+}
+
+function nextPage() {
+	pageNum++;
+	displayShips();
+}
+
+function prevPage() {
+	pageNum--;
+	displayShips();
+}
+
+function displayShips() {
+	var jsonShips = getShips().then(function(ships) {
+		return ships.results;
+	});
+
+	jsonShips.forEach(function(ship) {
+		console.log(ship.name);
+	})
+	
+}
+
+displayShips();
+</script>
+
+</body>
+</html>
