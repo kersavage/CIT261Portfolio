@@ -1,0 +1,88 @@
+ h3 {
+  font: 400 20px Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+ 
+li:last-child {
+  border: none;
+}
+
+body {
+     background-color: #e5e4e4;
+}
+
+button {
+    background-color: #4484CE;
+    color: white;
+    padding: 14px 25px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+  transform: translateY(4px);
+  opacity: 1.2;
+}
+
+.header {
+    text-align: center;
+    font-family: arial;
+    padding-top: 10px;
+}
+
+.container {
+    padding-bottom: 50px;
+    padding-right: 900px;
+    padding-left: 50px;
+}
+
+h1 {
+    font: 400 40px Helvetica, Verdana, sans-serif;
+    text-align: center;
+    color: #060b7a;
+}
+
+body select { 
+    display: block;
+    padding: 10px 70px 10px 13px !important; 
+    max-width: 100%; 
+    height: auto !important; 
+    border: 1px solid #e3e3e3; 
+    border-radius: 3px; 
+    background: url("https://i.ibb.co/b7xjLrB/selectbox-arrow.png") right center no-repeat; 
+    background-color: #fff; 
+    color: #444444; 
+    font-size: 12px; 
+    line-height: 16px !important; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+} 
+body select option { 
+    padding: 0 4px; 
+} 
+select::-ms-expand { 
+    display: none; 
+} 
+select:disabled::-ms-expand { 
+    background: #f60; 
+}
